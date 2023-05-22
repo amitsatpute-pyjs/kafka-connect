@@ -69,16 +69,9 @@ echo "hi" >> demo-file.txt
 2. Insert value in table and check it on UI > Topics tab.
 
 **Method-2:**
-  1. Run docker
+  1. Using API
  ```bash
- docker run --rm -it -v "$(pwd)":/tutorial --net=host landoop/fast-data-dev bash
+ curl -d "@<source-file-name>.json" -H "Content-Type: application/json" -X POST http://localhost:8083/connectors
 ```
-  2. Go to file location
-```bash
-cd tutorial/source/psql
-```
-  3. Run following command:
- ```bash
- connect-distributed source.properties
-```
+
   4. Insert values in tables and check it on UI > Topics

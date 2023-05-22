@@ -1,0 +1,26 @@
+{
+  "name": "psqlJosnCon2",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+    "incrementing.column.name": "id",
+    "connection.password": "password",
+    "config.storage.topic": "my-config-storage-topic",
+    "listeners": "http://0.0.0.0:8086",
+    "tasks.max": "1",
+    "group.id": "psqljs-group",
+    "status.storage.topic": "my-status-storage-topic",
+    "bootstrap.servers": "127.0.0.1:9092",
+    "mode": "incrementing",
+    "config.storage.replication.factor": "1",
+    "key.converter.schemas.enable": "true",
+    "topic.prefix": "psqltjs-",
+    "connection.user": "postgres",
+    "status.storage.replication.factor": "1",
+    "value.converter.schemas.enable": "true",
+    "offset.storage.replication.factor": "1",
+    "offset.storage.topic": "my-offsets-topic",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "connection.url": "jdbc:postgresql://127.0.0.1:5432/kafkatest",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter"
+  }
+}
