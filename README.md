@@ -1,4 +1,9 @@
 ## **Kafka-connect**
+Versions:
+
+docker-compose = 1.25.4
+
+
 Start kafka cluster  using 
 
     docker-compose up kafka-cluster

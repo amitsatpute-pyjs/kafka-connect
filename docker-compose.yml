@@ -12,7 +12,7 @@ services:
       - 8091-8093:8081-8083       # REST Proxy, Schema Registry, Kafka Connect ports
       - 9581-9585:9581-9585       # JMX Ports
       - 9092:9092                 # Kafka Broker
-    # network_mode: host
+    network_mode: host
 
   postgres:
     image: postgres
