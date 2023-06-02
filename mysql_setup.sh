@@ -10,6 +10,7 @@ count=1
 while [ $count -le 18 ]
 do
   if [[ "$TOPICLIST" == *"$TOPIC"* ]]; then
+    echo "Kafka-Connect is online. Creating source and sink connectors."
     cd source/msql/
     curl -d "@source.json" -H "Content-Type: application/json" -X POST http://localhost:8083/connectors
     cd ../../sink/msql/
@@ -22,5 +23,6 @@ else
 fi
 count=$(( $count + 1 ))
 done
+echo "Timeout.."
 exit 124
 
