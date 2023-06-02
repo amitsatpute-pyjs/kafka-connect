@@ -1,0 +1,27 @@
+{
+    "name": "MonolithSink",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+        "value.converter.schema.registry.schema.version": "1",
+        "table.name.format": "${topic}",
+        "connection.password": "password",
+        "tasks.max": "1",
+        "topics.regex": "monolith-(.*)",
+        "transforms": "route",
+        "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
+        "key.converter.schemas.enable": "true",
+        "transforms.route.regex": "([^.]+)\\-([^.]+)",
+        "auto.evolve": "true",
+        "key.converter.schema.registry.schema.version": "1",
+        "connection.user": "root",
+        "value.converter.schemas.enable": "true",
+        "auto.create": "true",
+        "connection.url": "jdbc:mysql://172.17.0.1:3306/monolith2",
+        "insert.mode": "upsert",
+        "transforms.route.replacement": "$2",
+        "pk.mode": "record_value",
+        "pk.fields": "id",
+        "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "value.converter": "org.apache.kafka.connect.json.JsonConverter"
+    }
+  }
