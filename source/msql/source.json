@@ -1,0 +1,27 @@
+{
+    "name": "MonolithOnPremConnector",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+        "incrementing.column.name": "id",
+        "connection.password": "password",
+        "tasks.max": "1",
+        "mode": "incrementing",
+        "key.converter.schemas.enable": "true",
+        "topic.prefix": "monolith-",
+        "connection.user": "root",
+        "value.converter.schemas.enable": "true",
+        "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "connection.url": "jdbc:mysql://172.17.0.1:3306/monolith",
+        "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "group.id": "monolith-group",
+        "offset.storage.topic": "my-offsets-topic1",
+        "config.storage.topic": "my-config-storage-topic1",
+        "status.storage.topic": "my-status-storage-topic1",
+        "bootstrap.servers": "127.0.0.1:9092",
+        "listeners": "http://0.0.0.0:8086",
+        "config.storage.replication.factor": "1",
+        "offset.storage.replication.factor": "1",
+        "status.storage.replication.factor": "1",
+        "table.blacklist": "knex_migrations,knex_migrations_lock"
+    }
+  }
