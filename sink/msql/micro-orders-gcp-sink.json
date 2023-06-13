@@ -17,7 +17,7 @@
         "connection.user": "root",
         "value.converter.schemas.enable": "true",
         "auto.create": "true",
-        "connection.url": "jdbc:mysql://172.17.0.1:3306/microservice_orders",
+        "connection.url": "jdbc:mysql://172.17.0.1:3306/micro_shop_orders",
         "insert.mode": "upsert",
         "transforms.route.replacement": "$2",
         "pk.mode": "record_value",
