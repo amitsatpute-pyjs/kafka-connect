@@ -1,0 +1,25 @@
+{
+    "name": "SOURCE_CONNECTOR",
+    "config": {
+        "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+        "transforms.createKey.type": "org.apache.kafka.connect.transforms.ValueToKey",
+        "connection.password": "postgres_pwd",
+        "transforms.cast.type": "org.apache.kafka.connect.transforms.Cast$Value",
+        "transforms.cast.spec": "amount:float64",
+        "tasks.max": "1",
+        "transforms": "cast,createKey,extractInt",
+        "transforms.extractInt.type": "org.apache.kafka.connect.transforms.ExtractField$Key",
+        "batch.max.rows": "25",
+        "table.whitelist": "orders",
+        "mode": "bulk",
+        "topic.prefix": "data_",
+        "transforms.extractInt.field": "uuid",
+        "connection.user": "postgres_user",
+        "transforms.createKey.fields": "uuid",
+        "poll.interval.ms": "3600000",
+        "sql.quote.identifiers": "false",
+        "name": "SOURCE_CONNECTOR",
+        "numeric.mapping": "best_fit",
+        "connection.url": "url"
+        }
+      }
