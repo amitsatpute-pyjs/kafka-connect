@@ -16,6 +16,7 @@ do
     cd ../../sink/msql/
     curl -d "@micro-products-gcp-sink.json" -H "Content-Type: application/json" -X POST http://localhost:8083/connectors
     curl -d "@micro-orders-gcp-sink.json" -H "Content-Type: application/json" -X POST http://localhost:8083/connectors
+    curl -d "@monolith-gcp-sink.json" -H "Content-Type: application/json" -X POST http://localhost:8083/connectors
     exit 0
 else
     sleep 10s
