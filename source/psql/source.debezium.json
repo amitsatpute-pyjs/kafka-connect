@@ -1,18 +1,21 @@
 {
-    "name": "PostgresSourceDebezium",
-    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
-    "database.user": "postgres",
-    "database.dbname": "mysource",
-    "transforms": "unwrap",
-    "database.server.name": "my-postgres-db",
-    "database.port": "5432",
-    "plugin.name": "pgoutput",
-    "key.converter.schemas.enable": "false",
-    "topic.prefix": "dpsql",
-    "database.hostname": "localhost",
-    "database.password": "password",
-    "transforms.unwrap.drop.tombstones": "true",
-    "value.converter.schemas.enable": "false",
-    "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
-    "table.include.list": "public.users"
+    "name": "PostgresConnector",
+    "config":{
+      "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+      "database.user": "airflow",
+      "database.dbname": "monolit",
+      "transforms": "unwrap",
+      "database.server.name": "my-postgres-db",
+      "database.port": "5432",
+      "plugin.name": "pgoutput",
+      "key.converter.schemas.enable": "false",
+      "topic.prefix": "dpsql",
+      "database.hostname": "localhost",
+      "database.password": "airflow",
+      "transforms.unwrap.drop.tombstones": "true",
+      "value.converter.schemas.enable": "false",
+      "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+      "table.include.list": "public.users,public.orders,publc.products"
+    }
+    
   }
