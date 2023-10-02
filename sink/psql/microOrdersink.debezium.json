@@ -1,0 +1,27 @@
+{
+  "name": "MonolithGCPPostgresSinkDebezium",
+    "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "table.name.format": "${topic}",
+    "connection.password": "airflow",
+    "tasks.max": "1",
+    "transforms": "route",
+    "topics.regex": "dpsql.(.*)",
+    "table.whitelist": "orders,users",
+    "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
+    "key.converter.schemas.enable": "false",
+    "value.converter.schema.registry.url": "http://localhost:8081",
+    "transforms.route.regex": "dpsql.public.(.*)",
+    "connection.user": "airflow",
+    "value.converter.schemas.enable": "false",
+    "auto.create": "true",
+    "value.converter": "io.confluent.connect.avro.AvroConverter",
+    "connection.url": "jdbc:postgresql://127.0.0.1:5432/microservices_orders",
+    "transforms.route.replacement": "$1",
+    "insert.mode": "upsert",
+    "key.converter": "io.confluent.connect.avro.AvroConverter",
+    "pk.mode": "record_value",
+    "key.converter.schema.registry.url": "http://localhost:8081",
+    "pk.fields": "id"
+  
+
+}

@@ -14,7 +14,9 @@ do
     cd source/psql/
     curl -d "@source.debezium.json" -H "Content-Type: application/json" -X POST http://localhost:8083/connectors
     cd ../../sink/psql/
-    curl -d "@sink.debezium.json" -H "Content-Type: application/json" -X POST http://localhost:8083/connectors
+    curl -d "@monosink.debezium.json" -H "Content-Type: application/json" -X POST http://localhost:8083/connectors
+    curl -d "@microOrdersink.debezium.json" -H "Content-Type: application/json" -X POST http://localhost:8083/connectors
+    curl -d "@microProductsink.debezium.json" -H "Content-Type: application/json" -X POST http://localhost:8083/connectors
     exit 0
 else
     sleep 10s
